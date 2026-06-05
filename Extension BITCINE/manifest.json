@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "BitCine Enhancer",
+  "version": "1.0.0",
+  "description": "@monumeeent - Playback speed, keyboard shortcuts, subtitle styling, and resume for BitCine.tv",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://www.bitcine.tv/*"
+  ],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.bitcine.tv/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "BitCine Enhancer",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  }
+}

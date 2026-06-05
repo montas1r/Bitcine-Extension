@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>BitCine Enhancer</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      width: 260px;
+      background: #0d0d10;
+      color: #fff;
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 13px;
+      padding: 16px;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .logo {
+      width: 28px; height: 28px;
+      background: linear-gradient(135deg, #e63946, #c1121f);
+      border-radius: 7px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+    }
+
+    .title { font-size: 13px; font-weight: 700; }
+    .subtitle { font-size: 10px; color: rgba(255,255,255,0.38); }
+
+    .status {
+      font-size: 10px; color: rgba(255,255,255,0.45);
+      margin-bottom: 12px; display: flex; align-items: center;
+    }
+    .status-dot {
+      width: 6px; height: 6px; background: #22c55e;
+      border-radius: 50%; margin-right: 5px;
+    }
+
+    .section-label {
+      font-size: 9px; font-weight: 700;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.10em; text-transform: uppercase;
+      margin-bottom: 7px; margin-top: 12px;
+    }
+
+    .shortcut-row {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      padding: 5px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .shortcut-row:last-child { border-bottom: none; }
+    .shortcut-desc { color: rgba(255,255,255,0.72); font-size: 12px; }
+
+    kbd {
+      display: inline-block;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.13);
+      border-radius: 4px; padding: 2px 6px;
+      font-size: 10px; font-family: inherit;
+      font-weight: 600; color: #fff;
+    }
+
+    /* ── Subtitle sliders ── */
+    .slider-row {
+      display: flex; flex-direction: column;
+      gap: 4px; padding: 6px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .slider-row:last-child { border-bottom: none; }
+
+    .slider-top {
+      display: flex; justify-content: space-between; align-items: center;
+    }
+
+    .slider-label { font-size: 11px; color: rgba(255,255,255,0.65); }
+
+    .slider-value {
+      font-size: 11px; font-weight: 600;
+      color: #e63946; min-width: 36px; text-align: right;
+    }
+
+    input[type=range] {
+      -webkit-appearance: none;
+      width: 100%; height: 3px;
+      background: rgba(255,255,255,0.12);
+      border-radius: 2px; outline: none; cursor: pointer;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 13px; height: 13px;
+      border-radius: 50%;
+      background: #e63946;
+      cursor: pointer;
+      border: 2px solid #fff;
+    }
+
+    /* Color row */
+    .color-row {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .color-row:last-child { border-bottom: none; }
+    .color-label { font-size: 11px; color: rgba(255,255,255,0.65); }
+
+    input[type=color] {
+      -webkit-appearance: none;
+      width: 32px; height: 22px;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 5px; cursor: pointer;
+      background: none; padding: 0;
+    }
+    input[type=color]::-webkit-color-swatch-wrapper { padding: 2px; }
+    input[type=color]::-webkit-color-swatch { border: none; border-radius: 3px; }
+
+    .reset-btn {
+      width: 100%; margin-top: 10px;
+      padding: 6px 0;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 7px; color: rgba(255,255,255,0.5);
+      font-size: 11px; font-family: inherit;
+      cursor: pointer; transition: background 0.15s;
+    }
+    .reset-btn:hover { background: rgba(255,255,255,0.10); color: #fff; }
+
+    .footer {
+      margin-top: 14px; padding-top: 10px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      text-align: center; font-size: 9px;
+      color: rgba(255,255,255,0.22); letter-spacing: 0.05em;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="logo">🎬</div>
+    <div>
+      <div class="title">BitCine Enhancer</div>
+      <div class="subtitle">by @monumeeent</div>
+    </div>
+  </div>
+
+  <div class="status">
+    <div class="status-dot"></div>
+    Active on bitcine.tv
+  </div>
+
+  <!-- Shortcuts -->
+  <div class="section-label">Speed</div>
+  <div class="shortcut-row">
+    <span class="shortcut-desc">Decrease speed (−0.1x)</span>
+    <kbd>[</kbd>
+  </div>
+  <div class="shortcut-row">
+    <span class="shortcut-desc">Increase speed (+0.1x)</span>
+    <kbd>]</kbd>
+  </div>
+
+  <div class="section-label">Episodes</div>
+  <div class="shortcut-row">
+    <span class="shortcut-desc">Previous episode</span>
+    <kbd>,</kbd>
+  </div>
+  <div class="shortcut-row">
+    <span class="shortcut-desc">Next episode</span>
+    <kbd>.</kbd>
+  </div>
+
+  <!-- Subtitle Controls -->
+  <div class="section-label">Subtitles</div>
+
+  <div class="slider-row">
+    <div class="slider-top">
+      <span class="slider-label">Font Size</span>
+      <span class="slider-value" id="val-size">100%</span>
+    </div>
+    <input type="range" id="sub-size" min="60" max="200" step="5" value="100" />
+  </div>
+
+  <div class="slider-row">
+    <div class="slider-top">
+      <span class="slider-label">Background Opacity</span>
+      <span class="slider-value" id="val-bg">72%</span>
+    </div>
+    <input type="range" id="sub-bg" min="0" max="100" step="5" value="72" />
+  </div>
+
+  <div class="slider-row">
+    <div class="slider-top">
+      <span class="slider-label">Position (bottom)</span>
+      <span class="slider-value" id="val-pos">8%</span>
+    </div>
+    <input type="range" id="sub-pos" min="0" max="40" step="1" value="8" />
+  </div>
+
+  <div class="color-row">
+    <span class="color-label">Font Color</span>
+    <input type="color" id="sub-color" value="#ffffff" />
+  </div>
+
+  <button class="reset-btn" id="reset-subs">↺ Reset subtitles to default</button>
+
+  <div class="footer">@monumeeent</div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
