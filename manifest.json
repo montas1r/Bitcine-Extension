@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "CinePlay Enhancer",
+  "version": "2.1.0",
+  "description": "Playback speed, keyboard shortcuts, subtitle styling, and resume for CinePlay & more",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://www.cineplay.to/*",
+    "https://*.cineplay.to/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.cineplay.to/*",
+        "https://*.cineplay.to/*"
+      ],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "CinePlay Enhancer",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}

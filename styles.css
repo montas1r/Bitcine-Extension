@@ -1,0 +1,271 @@
+/* ============================================================
+   CinePlay Enhancer — styles.css  v2.5
+   ============================================================ */
+
+/* ── Toast ─────────────────────────────────────────────────── */
+#bce-toast {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 2147483647;
+  pointer-events: none;
+  font-family: -apple-system, sans-serif;
+}
+#bce-toast.bce-toast-show { opacity: 1; transform: translateX(0); }
+#bce-toast.bce-toast-hide { opacity: 0; transform: translateX(12px); }
+
+/* ── Floating panel ──────────────────────────────────────────── */
+#bce-panel {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%) translateX(100%);
+  z-index: 2147483646;
+
+  width: 210px;
+  background: rgba(10, 16, 26, 0.98); /* Rich, clean dark slate backdrop */
+  border: 1px solid rgba(138, 92, 246, 0.15); /* Soft premium branding outline border */
+  border-right: none;
+  border-radius: 8px 0 0 8px;
+  box-shadow: -4px 0 24px rgba(10, 25, 45, 0.6);
+
+  font-family: -apple-system, sans-serif;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.25s cubic-bezier(0.34, 1.2, 0.64, 1),
+              opacity 0.2s ease;
+}
+
+#bce-panel.bce-panel-open {
+  transform: translateY(-50%) translateX(0);
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Panel header */
+.bce-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px 8px;
+  border-bottom: 1px solid rgba(138, 92, 246, 0.12);
+}
+
+/* Top Title Header text */
+.bce-panel-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #c4e2f5; /* Clean light ice-blue text */
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.bce-panel-close {
+  background: none;
+  border: none;
+  color: rgba(196, 181, 253, 0.4);
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0 2px;
+  line-height: 1;
+  transition: color 0.12s;
+}
+.bce-panel-close:hover { color: rgba(220, 200, 255, 0.9); }
+
+/* Panel body */
+.bce-panel-body {
+  padding: 10px 12px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Control row */
+.bce-ctrl-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.bce-ctrl-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Control Row Labels (e.g. SPEED, SUB SIZE) */
+.bce-ctrl-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: rgba(196, 226, 245, 0.45); /* Balanced dark profile label contrast tint */
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Dynamic active value tags */
+.bce-ctrl-val {
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(196, 181, 253, 0.9);
+}
+
+/* ── Matte Capsule Input Blocks (Non-Flashy Replacement) ──── */
+.bce-capsule-track {
+  position: relative;
+  width: 100%;
+  height: 11px; /* Uniform flat horizontal layout block profile thickness */
+  background: rgba(255, 255, 255, 0.03); /* Translucent track floor layer */
+  border: 1px solid rgba(138, 92, 246, 0.15); /* Clean framing barrier outline */
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: ew-resize; /* Side-to-side navigation visual adjustment indicator hint */
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.bce-capsule-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: rgba(138, 92, 246, 0.12); /* Clean violet tint level background filling segment */
+  border-right: 2px solid #8a5cf6; /* Sharp, flat vertical leveling marker boundary block */
+  pointer-events: none;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+/* Capsule Interaction Behaviors */
+.bce-capsule-track:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(138, 92, 246, 0.35);
+}
+
+.bce-capsule-track:hover .bce-capsule-fill {
+  background: rgba(138, 92, 246, 0.18);
+  border-right-color: #a78bfa; /* Slightly brightens edge indicator line on focal mouse hovering */
+}
+
+/* Color input */
+.bce-color {
+  -webkit-appearance: none;
+  width: 32px;
+  height: 18px;
+  border: 1px solid rgba(138, 92, 246, 0.2);
+  border-radius: 3px;
+  cursor: pointer;
+  background: none;
+  padding: 0;
+}
+.bce-color::-webkit-color-swatch-wrapper { padding: 2px; }
+.bce-color::-webkit-color-swatch { border: none; border-radius: 2px; }
+
+.bce-color-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Dividers inside panel body */
+.bce-divider {
+  height: 1px;
+  background: rgba(138, 92, 246, 0.1);
+  margin: 2px 0;
+}
+
+/* Shortcuts */
+.bce-shortcuts {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.bce-shortcut-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Shortcuts description labels */
+.bce-shortcut-desc {
+  font-size: 9.5px;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* Keyboard badge tags */
+.bce-kbd {
+  display: inline-block;
+  background: rgba(138, 92, 246, 0.08);
+  border: 1px solid rgba(138, 92, 246, 0.2);
+  border-radius: 3px;
+  padding: 1px 5px;
+  font-size: 8.5px;
+  font-weight: 600;
+  color: rgba(196, 181, 253, 0.7);
+  font-family: inherit;
+}
+
+/* Toolbar button */
+#bce-toolbar-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: rgba(138, 92, 246, 0.08);
+  border: 1px solid rgba(138, 92, 246, 0.2);
+  border-radius: 5px;
+  cursor: pointer;
+  color: rgba(196, 181, 253, 0.7);
+  font-size: 13px;
+  transition: background 0.12s, color 0.12s;
+  margin: 0 3px;
+  flex-shrink: 0;
+}
+#bce-toolbar-btn:hover {
+  background: rgba(138, 92, 246, 0.2);
+  color: #ffffff;
+}
+
+/* ============================================================
+   Watermark Footer Section (Refined Matte Presentation)
+   ============================================================ */
+.bce-panel-wm-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 12px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(138, 92, 246, 0.1);
+}
+
+.bce-panel-wm {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  opacity: 0.4; /* Soft, out-of-the-way look by default */
+  transition: opacity 0.15s ease;
+}
+
+.bce-panel-wm:hover {
+  opacity: 0.95; /* Brightens up beautifully on cursor hover */
+}
+
+.bce-icon-git, 
+.bce-icon-ig {
+  width: 11px;
+  height: 11px;
+  margin-right: 4px;
+  flex-shrink: 0;
+  fill: #ffffff;
+  display: block;
+}
+
+.bce-wm-text {
+  font-family: -apple-system, sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.01em;
+  line-height: 1;
+}

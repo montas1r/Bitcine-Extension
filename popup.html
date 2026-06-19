@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>CinePlay Enhancer</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      width: 220px;
+      background: #0d0d10;
+      color: #fff;
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 13px;
+      padding: 14px;
+    }
+    .header {
+      display:flex; align-items:center; gap:8px;
+      margin-bottom:12px; padding-bottom:10px;
+      border-bottom:1px solid rgba(255,255,255,0.07);
+    }
+    .logo {
+      width:26px; height:26px;
+      background:linear-gradient(135deg,#1a0a2e,#2d1b4e);
+      border:1px solid rgba(138,92,246,0.35);
+      border-radius:5px; display:flex;
+      align-items:center; justify-content:center; font-size:13px;
+    }
+    .title { font-size:12px; font-weight:700; color:#e2d4ff; }
+    .subtitle { font-size:9px; color:rgba(180,140,255,0.4); }
+    .hint {
+      font-size:10px; color:rgba(196,181,253,0.5);
+      background:rgba(138,92,246,0.08);
+      border:1px solid rgba(138,92,246,0.15);
+      border-radius:5px; padding:7px 10px;
+      text-align:center; line-height:1.5;
+    }
+    .hint kbd {
+      display:inline-block;
+      background:rgba(138,92,246,0.2);
+      border:1px solid rgba(138,92,246,0.35);
+      border-radius:3px; padding:1px 6px;
+      font-size:10px; font-weight:700; color:#c4b5fd;
+    }
+    .footer {
+      margin-top:12px; text-align:center;
+      font-size:9px; color:rgba(180,140,255,0.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">🎬</div>
+    <div>
+      <div class="title">CinePlay Enhancer</div>
+      <div class="subtitle">by @monumeeent</div>
+    </div>
+  </div>
+  <div class="hint">
+    Press <kbd>Ctrl+\</kbd> on any<br/>
+    CinePlay page to open<br/>the settings panel
+  </div>
+  <div class="footer">@monumeeent</div>
+</body>
+</html>
